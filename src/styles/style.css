@@ -1,1217 +1,911 @@
+/* =====================================================
+   NeoFood - CSS amélioré + responsive
+   ===================================================== */
+
+/* ===== RESET GLOBAL ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
-    margin: 0;
-    overflow-x: hidden;
-    background-color: #d98c3a;
-    font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #d98c3a;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
 }
 
 /* ===== HEADER / NAVBAR ===== */
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
 
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 
-    height: 80px;
-    padding: 20px 30px;
+  min-height: 80px;
+  padding: 20px 30px;
 
-    border-radius: 25px;
+  border-radius: 0 0 25px 25px;
 }
 
 .titleHeader {
-    font-size: 70px;
-    color: white;
-    font-weight: bold;
-    letter-spacing: 2px;
+  font-size: clamp(38px, 7vw, 70px);
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .nav {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .nav a {
-    background-color: darkorange;
-    color: white;
+  background-color: darkorange;
+  color: white;
+  text-decoration: none;
 
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 30px;
+  padding: 10px 16px;
+  border-radius: 30px;
 
-    font-weight: bold;
-    transition: 0.3s;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .nav a:hover {
-    background-color: orange;
-    transform: scale(1.05);
+  background-color: orange;
+  transform: scale(1.05);
 }
 
 /* ===== LAYOUT GLOBAL ===== */
 
 main {
-    padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  gap: 20px;
 }
 
 /* ===== SECTIONS DE BASE ===== */
 
 section {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 
-    padding: 20px;
-    border-radius: 15px;
+  padding: 20px;
+  border-radius: 15px;
 
-    color: white;
-    transition: 0.3s;
+  color: white;
+  transition: 0.3s;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 section * {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
-/* ===== HERO ===== */
+/* =====================================================
+   ACCUEIL / HERO
+   ===================================================== */
 
 .hero {
-    min-height: 80vh;
-    background: #050505;
-    color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 60px;
-    padding: 80px;
+  width: 100%;
+  min-height: 80vh;
+
+  background: #050505;
+  color: white;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+
+  padding: 80px;
 }
 
 .heroText {
-    max-width: 650px;
+  max-width: 650px;
 }
 
 .heroSubtitle {
-    color: #ff8c00;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+  color: #ff8c00;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
 }
 
 .hero h1 {
-    font-size: clamp(48px, 7vw, 95px);
-    line-height: 1;
-    margin: 0;
+  font-size: clamp(46px, 7vw, 95px);
+  line-height: 1;
+  margin: 0;
 }
 
 .heroDescription {
-    font-size: 22px;
-    color: #d6d6d6;
-    margin-top: 25px;
-    max-width: 500px;
+  font-size: 22px;
+  color: #d6d6d6;
+  margin-top: 25px;
+  max-width: 500px;
 }
 
 .heroButtons {
-    display: flex;
-    gap: 18px;
-    margin-top: 35px;
+  display: flex;
+  gap: 18px;
+  margin-top: 35px;
+  flex-wrap: wrap;
 }
 
 .btnPrimary,
 .btnSecondary {
-    padding: 16px 28px;
-    border-radius: 999px;
-    font-weight: 800;
-    cursor: pointer;
-    font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+
+  padding: 16px 28px;
+  border-radius: 999px;
+
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .btnPrimary {
-    background: #ff8c00;
-    color: white;
-    border: none;
+  background: #ff8c00;
+  color: white;
+  border: none;
 }
 
 .btnSecondary {
-    background: transparent;
-    color: white;
-    border: 2px solid #ff8c00;
-}
-
-.btnPrimary,
-.btnSecondary {
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
+  background: transparent;
+  color: white;
+  border: 2px solid #ff8c00;
 }
 
 .heroImage {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .heroImage img {
-    width: min(100%, 620px);
-    filter: drop-shadow(0 0 45px rgba(255, 140, 0, 0.45));
+  width: min(100%, 620px);
+  filter: drop-shadow(0 0 45px rgba(255, 140, 0, 0.45));
 }
 
 .features {
-    background: #050505;
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    padding: 0 80px 80px;
+  width: 100%;
+  background: #050505;
+  color: white;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+
+  padding: 0 80px 80px;
 }
 
 .featureCard {
-    background: #111;
-    border: 1px solid rgba(255, 140, 0, 0.25);
-    border-radius: 24px;
-    padding: 30px;
+  background: #111;
+  border: 1px solid rgba(255, 140, 0, 0.25);
+  border-radius: 24px;
+  padding: 30px;
 }
 
 .featureCard h3 {
-    color: #ff8c00;
-    font-size: 26px;
-    margin-bottom: 10px;
+  color: #ff8c00;
+  font-size: 26px;
+  margin-bottom: 10px;
 }
 
 .featureCard p {
-    color: #cfcfcf;
+  color: #cfcfcf;
 }
 
-/* ===== PAGE MENU ===== */
+/* =====================================================
+   ANCIENNES CARTES MENU
+   ===================================================== */
 
 .menuPage {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    gap: 30px;
-    padding: 40px;
+  width: 100%;
+  display: block;
+  max-width: none;
+  margin: 0;
+  padding: 48px;
+  background: #fff9f4;
+  color: #101520;
 }
 
 .cardMenu {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 
-    padding: 40px;
-    border-radius: 25px;
+  padding: 40px;
+  border-radius: 25px;
 
-    min-height: 250px;
+  min-height: 250px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    transition: 0.3s;
+  transition: 0.3s;
 }
 
 .cardMenu h2,
 .cardMenu p {
-    color: white;
+  color: white;
 }
 
 .cardMenu:hover {
-    transform: translateY(-10px);
-    background-color: #111;
+  transform: translateY(-10px);
+  background-color: #111;
 }
 
-/* ===== PRODUITS ===== */
+.menu,
+.dessert,
+.boisson {
+  background-size: cover;
+  background-position: center;
+}
 
 .menu {
-    background-image: url("images/image burger.jpg");
-    background-size: cover;
-    background-position: center;
+  background-image: url("images/image burger.jpg");
 }
 
 .dessert {
-    background-image: url("images/image tiramisu.jpg");
-    background-size: cover;
-    background-position: center;
+  background-image: url("images/image tiramisu.jpg");
 }
 
 .boisson {
-    background-image: url("images/image tacos.jpg");
-    background-size: cover;
-    background-position: center;
+  background-image: url("images/image tacos.jpg");
 }
 
 .menu::before,
 .dessert::before,
 .boisson::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.5);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-/* ===== PANIER ===== */
+/* =====================================================
+   PANIER
+   ===================================================== */
 
 .panier {
-    background-color: oklch(83.7% 0.128 66.29);
-    color: white;
+  background-color: oklch(83.7% 0.128 66.29);
+  color: white;
 }
 
 .panierItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    gap: 20px;
-    margin-bottom: 15px;
+  gap: 20px;
+  margin-bottom: 15px;
 }
 
 .quantityControls {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
-    background-color: #f1f1f1;
+  background-color: #f1f1f1;
+  padding: 12px 25px;
+  border-radius: 40px;
 
-    padding: 12px 25px;
-    border-radius: 40px;
-
-    width: fit-content;
+  width: fit-content;
 }
 
 .quantityControls button {
-    background: transparent;
-    border: none;
+  background: transparent;
+  border: none;
+  color: black;
 
-    color: black;
+  font-size: 28px;
 
-    font-size: 28px;
-
-    width: auto;
-    padding: 0;
-
-    cursor: pointer;
+  width: auto;
+  padding: 0;
+  cursor: pointer;
 }
 
 .quantityControls span {
-    color: black;
-    font-size: 22px;
-    font-weight: bold;
+  color: black;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 /* ===== BOUTONS GLOBAUX ===== */
 
 button {
-    background-color: darkorange;
-    color: white;
+  background-color: darkorange;
+  color: white;
 
-    border: none;
-    padding: 12px;
-    border-radius: 25px;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
 
-    font-weight: bold;
-    transition: 0.3s;
+  font-weight: bold;
+  transition: 0.3s;
 
-    width: 100%;
+  width: 100%;
 }
 
 button:hover {
-    transform: scale(1.05);
-    background-color: darkorange;
+  transform: scale(1.05);
+  background-color: darkorange;
 }
 
-/* ===== FOOTER ===== */
-
-footer {
-    text-align: center;
-    padding: 15px;
-}
-
-
-/* ===== NOUVELLE PAGE MENU ===== */
-
-/* ===== NOUVEAU MENU ===== */
+/* =====================================================
+   PAGE MENU ACCÈS CATÉGORIES
+   ===================================================== */
 
 .menuContainer {
-    min-height: 100vh;
-    padding: 40px;
-    text-align: center;
-}
+  width: 100%;
+  min-height: 100vh;
+  padding: 35px 65px 0;
 
-.menuTitle {
-    font-size: 90px;
-    color: black;
-    margin-bottom: 20px;
-}
-
-.menuDescription {
-    font-size: 28px;
-    color: black;
-    margin-bottom: 60px;
-}
-
-.menuGrid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 30px;
-
-    max-width: 1450px;
-    margin: auto;
-}
-
-.menuCard {
-    background: black;
-    width: 280px;
-    border-radius: 35px;
-    padding: 30px;
-    color: white;
-
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-
-    transition: 0.3s;
-}
-
-.menuCard:hover {
-    transform: translateY(-10px);
-}
-
-.menuCard h2 {
-    color: orange;
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-
-.menuCard p {
-    font-size: 20px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-.menuCard img {
-    width: 100%;
-    height: 260px;
-    object-fit: contain;
-    margin-bottom: 30px;
-}
-
-.menuBtn {
-    display: inline-block;
-
-    background: orange;
-    color: white;
-
-    text-decoration: none;
-
-    padding: 18px 50px;
-    border-radius: 20px;
-
-    font-size: 30px;
-    font-weight: bold;
-
-    transition: 0.3s;
-}
-
-.menuBtn:hover {
-    background: white;
-    color: black;
-}
-
-@media (max-width: 1100px) {
-
-    .menuGrid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-}
-
-.menuContainer {
-    min-height: 100vh;
-    padding: 35px 65px 0;
-    background: linear-gradient(135deg, #d98a36, #ff9500);
-    position: relative;
-    overflow: hidden;
+  background: linear-gradient(135deg, #d98a36, #ff9500);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 }
 
 .clocheIcon {
-    position: absolute;
-    top: 115px;
-    right: 170px;
-    width: 270px;
-    opacity: 0.18;
+  position: absolute;
+  top: 115px;
+  right: 170px;
+  width: 270px;
+  opacity: 0.18;
 }
 
 .menuTop {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 25px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 25px;
 }
 
 .menuTop h1 {
-    font-size: 48px;
-    color: black;
-    margin-bottom: 5px;
+  font-size: clamp(40px, 7vw, 48px);
+  color: black;
+  margin-bottom: 5px;
 }
 
 .menuLine {
-    font-size: 22px;
-    margin-bottom: 18px;
+  font-size: 22px;
+  margin-bottom: 18px;
 }
 
 .menuTop p {
-    font-size: 18px;
-    color: black;
-    line-height: 1.4;
+  font-size: 18px;
+  color: black;
+  line-height: 1.4;
 }
 
 .menuGrid {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 35px;
+
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .menuCard {
-    background: black;
-    color: white;
-    border-radius: 28px;
-    padding: 25px;
-    text-align: center;
-    height: 420px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  background: black;
+  color: white;
+
+  width: 100%;
+  min-height: 420px;
+
+  border-radius: 28px;
+  padding: 25px;
+
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+  transition: 0.3s;
+}
+
+.menuCard:hover {
+  transform: translateY(-10px);
 }
 
 .menuCard h2 {
-    color: #ff9500;
-    font-size: 34px;
-    margin-bottom: 5px;
+  color: #ff9500;
+  font-size: 34px;
+  margin-bottom: 5px;
 }
 
 .menuCard span {
-    display: block;
-    width: 35px;
-    height: 3px;
-    background: #ff9500;
-    margin: 0 auto 15px;
+  display: block;
+  width: 35px;
+  height: 3px;
+  background: #ff9500;
+  margin: 0 auto 15px;
 }
 
 .menuCard p {
-    font-size: 15px;
-    line-height: 1.4;
-    min-height: 45px;
+  font-size: 15px;
+  line-height: 1.4;
+  min-height: 45px;
 }
 
 .menuCard img {
-    width: 100%;
-    height: 210px;
-    object-fit: contain;
-    margin-bottom: 15px;
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
 .menuBtn {
-    display: inline-block;
-    background: #ff9500;
-    color: white;
-    text-decoration: none;
-    padding: 12px 35px;
-    border-radius: 18px;
-    font-size: 20px;
-    font-weight: bold;
+  display: inline-block;
+  background: #ff9500;
+  color: white;
+
+  text-decoration: none;
+
+  padding: 12px 35px;
+  border-radius: 18px;
+
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.menuBtn:hover {
+  background: white;
+  color: black;
 }
 
 .menuFooter {
-    margin-top: 25px;
-    background: black;
-    color: white;
-    border-radius: 20px 20px 0 0;
-    padding: 25px 45px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  margin-top: 25px;
+  background: black;
+  color: white;
+
+  border-radius: 20px 20px 0 0;
+  padding: 25px 45px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .menuFooter h2 {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .menuFooter span,
 .menuFooter strong {
-    color: #ff9500;
+  color: #ff9500;
 }
 
 .menuFooter p {
-    font-size: 13px;
+  font-size: 13px;
 }
-
-
-
-
-
-
 
 /* =====================================================
-   PAGE MENU PREMIUM - NeoFood
-   À utiliser avec le composant Menu.jsx
+   PAGE MENU PREMIUM / PRODUITS
    ===================================================== */
 
-.menuPage {
-    display: block;
-    max-width: none;
-    margin: 0;
-    padding: 48px;
-    background: #fff9f4;
-    color: #101520;
-}
-
 .menuHero {
-    text-align: center;
-    padding: 50px 0;
-    color: #101520;
+  text-align: center;
+  padding: 50px 0;
+  color: #101520;
 }
 
 .menuHero .badge,
 .badge {
-    display: inline-block;
-    padding: 10px 22px;
-    border: 1px solid #ffd8c8;
-    border-radius: 999px;
-    color: #ff3d16;
-    font-weight: 600;
-    background: white;
-    margin-bottom: 20px;
+  display: inline-block;
+  padding: 10px 22px;
+
+  border: 1px solid #ffd8c8;
+  border-radius: 999px;
+
+  color: #ff3d16;
+  font-weight: 600;
+  background: white;
+
+  margin-bottom: 20px;
 }
 
 .menuHero h1 {
-    font-size: 72px;
-    margin: 0;
-    color: #101520;
-    line-height: 1.05;
+  font-size: clamp(38px, 8vw, 72px);
+  margin: 0;
+  color: #101520;
+  line-height: 1.05;
 }
 
 .menuHero h1 span {
-    color: #ff3d16;
+  color: #ff3d16;
 }
 
 .menuHero p {
-    font-size: 18px;
-    color: #333;
-    line-height: 1.6;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
 }
 
 .categories {
-    max-width: 1100px;
-    margin: 0 auto 40px;
-    padding: 22px;
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    background: white;
-    border-radius: 28px;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+  max-width: 1100px;
+  margin: 0 auto 40px;
+  padding: 22px;
+
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
 }
 
 .categories button {
-    width: auto;
-    border: 1px solid #eee;
-    background: white;
-    color: #101520;
-    padding: 14px 24px;
-    border-radius: 999px;
-    font-weight: 600;
-    cursor: pointer;
+  width: auto;
+  border: 1px solid #eee;
+  background: white;
+  color: #101520;
+
+  padding: 14px 24px;
+  border-radius: 999px;
+
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .categories .active,
 .categories button:hover {
-    background: #ff3d16;
-    color: white;
-    transform: none;
+  background: #ff3d16;
+  color: white;
+  transform: none;
 }
 
 .productsGrid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 
 .productCard {
-    background: white;
-    color: #101520;
-    border-radius: 20px;
-    overflow: hidden;
-    padding: 0;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-    transition: 0.3s ease;
+  background: white;
+  color: #101520;
+
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0;
+
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
 }
 
 .productCard:hover {
-    transform: translateY(-6px);
+  transform: translateY(-6px);
 }
 
 .productCard img {
-    width: 100%;
-    height: 210px;
-    object-fit: cover;
-    margin: 0;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  margin: 0;
 }
 
 .productContent {
-    padding: 18px;
+  padding: 18px;
 }
 
 .productContent h2 {
-    font-size: 20px;
-    margin: 0 0 8px;
-    color: #101520;
+  font-size: 20px;
+  margin: 0 0 8px;
+  color: #101520;
 }
 
 .productContent p {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.5;
-    min-height: 42px;
-    margin: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  min-height: 42px;
+  margin: 0;
 }
 
 .productContent strong {
-    display: block;
-    margin: 14px 0 8px;
-    color: #ff3d16;
-    font-size: 22px;
+  display: block;
+  margin: 14px 0 8px;
+  color: #ff3d16;
+  font-size: 22px;
 }
 
 .cardBottom {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .cardBottom span {
-    font-size: 14px;
-    color: #101520;
+  font-size: 14px;
+  color: #101520;
 }
 
 .cardBottom button {
-    width: auto;
-    border: none;
-    background: #ff3d16;
-    color: white;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
+  width: auto;
+  border: none;
+  background: #ff3d16;
+  color: white;
+
+  padding: 12px 16px;
+  border-radius: 10px;
+
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .plusButton {
-    width: 42px !important;
-    height: 42px !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
-    background: white !important;
-    color: #111 !important;
-    border: 1px solid #eee !important;
+  width: 42px !important;
+  height: 42px !important;
+  padding: 0 !important;
+
+  border-radius: 50% !important;
+  background: white !important;
+  color: #111 !important;
+  border: 1px solid #eee !important;
 }
 
 .deliveryBanner {
-    max-width: 1100px;
-    margin: 32px auto 0;
-    background: linear-gradient(135deg, #ff3d16, #ff6a2a);
-    color: white;
-    border-radius: 24px;
-    padding: 34px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1100px;
+  margin: 32px auto 0;
+
+  background: linear-gradient(135deg, #ff3d16, #ff6a2a);
+  color: white;
+
+  border-radius: 24px;
+  padding: 34px 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
 }
 
 .deliveryIcon {
-    width: 70px;
-    height: 70px;
-    background: white;
-    color: #ff3d16;
-    border-radius: 18px;
-    display: grid;
-    place-items: center;
-    font-size: 34px;
-    margin-bottom: 16px;
+  width: 70px;
+  height: 70px;
+
+  background: white;
+  color: #ff3d16;
+
+  border-radius: 18px;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 34px;
+  margin-bottom: 16px;
 }
 
 .deliveryBanner h2 {
-    font-size: 34px;
-    margin: 0 0 10px;
-    color: white;
+  font-size: 34px;
+  margin: 0 0 10px;
+  color: white;
 }
 
 .deliveryBanner p {
-    margin-bottom: 20px;
-    color: white;
+  margin-bottom: 20px;
+  color: white;
 }
 
 .deliveryBanner button {
-    width: auto;
-    border: none;
-    background: white;
-    color: #111;
-    padding: 14px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
+  width: auto;
+  border: none;
+  background: white;
+  color: #111;
+
+  padding: 14px 24px;
+  border-radius: 12px;
+
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .deliveryTime {
-    width: 110px;
-    height: 110px;
-    background: white;
-    color: #111;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 24px;
-    font-weight: 800;
+  width: 110px;
+  height: 110px;
+
+  background: white;
+  color: #111;
+
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 24px;
+  font-weight: 800;
+
+  flex-shrink: 0;
 }
 
-@media (max-width: 1024px) {
-    .productsGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* =====================================================
+   PAGE DESSERTS + BOISSONS
+   ===================================================== */
 
-    .menuHero h1 {
-        font-size: 48px;
-    }
-
-    .deliveryBanner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-    }
+.dessertPage,
+.boissonPage {
+  background: #050505;
+  min-height: 100vh;
+  padding: 60px;
 }
 
-@media (max-width: 600px) {
-    .menuPage {
-        padding: 24px;
-    }
+.dessertHero,
+.boissonHero {
+  background:
+    radial-gradient(circle at right, rgba(255, 140, 0, 0.18), transparent 35%),
+    #0b0b0b;
 
-    .productsGrid {
-        grid-template-columns: 1fr;
-    }
+  color: white;
 
-    .menuHero h1 {
-        font-size: 38px;
-    }
+  border-radius: 35px;
+  padding: 70px;
+  margin-bottom: 50px;
+
+  border: 1px solid rgba(255, 140, 0, 0.12);
 }
 
-@media (max-width: 900px) {
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 50px 25px;
-    }
-
-    .heroDescription {
-        margin-inline: auto;
-    }
-
-    .heroButtons {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-        padding: 0 25px 50px;
-    }
-}
-
-@media (max-width: 1000px) {
-
-    .dessertGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .dessertHero h1 {
-        font-size: 52px;
-    }
-
-}
-
-@media (max-width: 650px) {
-
-    .dessertPage {
-        padding: 25px;
-    }
-
-    .dessertGrid {
-        grid-template-columns: 1fr;
-    }
-
-    .dessertHero {
-        padding: 40px;
-    }
-
-    .dessertHero h1 {
-        font-size: 42px;
-    }
-
-    .dessertHero p {
-        font-size: 18px;
-    }
-
-}
-
-
-/* ===== PAGE DESSERTS ===== */
-
-.dessertPage {
-    background: #050505;
-    min-height: 100vh;
-    padding: 60px;
-}
-
-/* ===== HERO ===== */
-
-.dessertHero {
-    background:
-        radial-gradient(circle at right,
-            rgba(255, 140, 0, 0.18),
-            transparent 35%),
-        #0b0b0b;
-
-    color: white;
-
-    border-radius: 35px;
-
-    padding: 70px;
-
-    margin-bottom: 50px;
-
-    border: 1px solid rgba(255, 140, 0, 0.12);
-}
-
-.dessertHero h1 {
-    font-size: 74px;
-    margin: 0 0 20px;
-    line-height: 1;
+.dessertHero h1,
+.boissonHero h1 {
+  font-size: clamp(42px, 8vw, 74px);
+  margin: 0 0 20px;
+  line-height: 1;
 }
 
 .dessertHero h1 span {
-    color: #ff8c00;
+  color: #ff8c00;
 }
 
-.dessertHero p {
-    font-size: 24px;
-    color: #d6d6d6;
-    max-width: 600px;
-    line-height: 1.5;
-}
-
-/* ===== GRID ===== */
-
-.dessertGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
-}
-
-/* ===== CARD ===== */
-
-.dessertCard {
-    background: #0d0d0d;
-
-    color: white;
-
-    border-radius: 30px;
-
-    padding: 30px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    border: 1px solid rgba(255, 140, 0, 0.12);
-
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-
-    transition: 0.3s ease;
-}
-
-.dessertCard:hover {
-    transform: translateY(-10px);
-
-    border-color: rgba(255, 140, 0, 0.35);
-
-    box-shadow:
-        0 20px 45px rgba(0, 0, 0, 0.45),
-        0 0 30px rgba(255, 140, 0, 0.08);
-}
-
-/* ===== IMAGE ===== */
-
-.dessertCard img {
-    width: 100%;
-    height: 260px;
-
-    object-fit: cover;
-
-    border-radius: 22px;
-
-    margin-bottom: 25px;
-}
-
-/* ===== TEXT ===== */
-
-.dessertCard h2 {
-    font-size: 42px;
-    margin: 0 0 15px;
-    color: white;
-}
-
-.dessertCard p {
-    color: #cfcfcf;
-
-    font-size: 18px;
-
-    line-height: 1.6;
-
-    margin-bottom: 25px;
-}
-
-.dessertCard strong {
-    color: #ff8c00;
-
-    font-size: 34px;
-
-    margin-bottom: 25px;
-
-    display: block;
-}
-
-/* ===== BUTTON ===== */
-
-.dessertCard button {
-    background: linear-gradient(135deg, #ff8c00, #ff9500);
-
-    color: white;
-
-    border: none;
-
-    border-radius: 18px;
-
-    padding: 18px;
-
-    font-size: 18px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    width: 100%;
-
-    transition: 0.3s ease;
-}
-
-.dessertCard button:hover {
-    transform: scale(1.03);
-
-    background: linear-gradient(135deg, #ff9500, #ffad33);
-}
-
-/* ===== RESPONSIVE ===== */
-
-@media (max-width: 1000px) {
-
-    .dessertGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .dessertHero h1 {
-        font-size: 52px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .boissonGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .boissonHero h1 {
-        font-size: 52px;
-    }
-}
-
-@media (max-width: 650px) {
-    .boissonPage {
-        padding: 25px;
-    }
-
-    .boissonGrid {
-        grid-template-columns: 1fr;
-    }
-
-    .boissonHero {
-        padding: 40px;
-    }
-
-    .boissonHero h1 {
-        font-size: 42px;
-    }
-
-    .boissonHero p {
-        font-size: 18px;
-    }
-
-    @media (max-width: 1000px) {
-
-        .commandeGrid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .commandeHero h1 {
-            font-size: 52px;
-        }
-
-    }
-
-    @media (max-width: 650px) {
-
-        .commandePage {
-            padding: 25px;
-        }
-
-        .commandeGrid {
-            grid-template-columns: 1fr;
-        }
-
-        .commandeHero {
-            padding: 40px;
-        }
-
-        .commandeHero h1 {
-            font-size: 42px;
-        }
-
-        .commandeHero p {
-            font-size: 18px;
-        }
-
-    }
-
-}
-
-/* ===== PAGE BOISSONS ===== */
-
-.boissonPage {
-    background: #050505;
-    min-height: 100vh;
-    padding: 60px;
-}
-
-.boissonHero {
-    background:
-        radial-gradient(circle at right, rgba(255, 140, 0, 0.18), transparent 35%),
-        #0b0b0b;
-    color: white;
-    border-radius: 35px;
-    padding: 70px;
-    margin-bottom: 50px;
-    border: 1px solid rgba(255, 140, 0, 0.12);
-}
-
-.boissonHero h1 {
-    font-size: 74px;
-    margin: 0 0 20px;
-    line-height: 1;
-}
-
+.dessertHero p,
 .boissonHero p {
-    font-size: 24px;
-    color: #d6d6d6;
-    max-width: 600px;
-    line-height: 1.5;
+  font-size: 24px;
+  color: #d6d6d6;
+  max-width: 600px;
+  line-height: 1.5;
 }
 
+.dessertGrid,
 .boissonGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
 }
 
+.dessertCard,
 .boissonCard {
-    background: #0d0d0d;
-    color: white;
-    border-radius: 30px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid rgba(255, 140, 0, 0.12);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    transition: 0.3s ease;
+  background: #0d0d0d;
+  color: white;
+
+  border-radius: 30px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid rgba(255, 140, 0, 0.12);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+  transition: 0.3s ease;
 }
 
+.dessertCard:hover,
 .boissonCard:hover {
-    transform: translateY(-10px);
-    border-color: rgba(255, 140, 0, 0.35);
+  transform: translateY(-10px);
+  border-color: rgba(255, 140, 0, 0.35);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(255, 140, 0, 0.08);
 }
 
+.dessertCard img,
 .boissonCard img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 22px;
-    margin-bottom: 25px;
+  width: 100%;
+  height: 260px;
+
+  object-fit: cover;
+
+  border-radius: 22px;
+  margin-bottom: 25px;
 }
 
+.dessertCard h2,
 .boissonCard h2 {
-    font-size: 42px;
-    margin: 0 0 15px;
+  font-size: 42px;
+  margin: 0 0 15px;
+  color: white;
 }
 
+.dessertCard p,
 .boissonCard p {
-    color: #cfcfcf;
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 25px;
+  color: #cfcfcf;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 25px;
 }
 
+.dessertCard strong,
 .boissonCard strong {
-    color: #ff8c00;
-    font-size: 34px;
-    margin-bottom: 25px;
-    display: block;
+  color: #ff8c00;
+  font-size: 34px;
+  margin-bottom: 25px;
+  display: block;
 }
 
+.dessertCard button,
 .boissonCard button {
-    background: linear-gradient(135deg, #ff8c00, #ff9500);
-    color: white;
-    border: none;
-    border-radius: 18px;
-    padding: 18px;
-    font-size: 18px;
-    font-weight: 800;
-    cursor: pointer;
-    width: 100%;
+  background: linear-gradient(135deg, #ff8c00, #ff9500);
+  color: white;
+
+  border: none;
+  border-radius: 18px;
+
+  padding: 18px;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  cursor: pointer;
+  width: 100%;
+
+  transition: 0.3s ease;
 }
 
+.dessertCard button:hover,
 .boissonCard button:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #ff9500, #ffad33);
 }
 
-
-/* ===== PAGE COMMANDE ===== */
+/* =====================================================
+   PAGE COMMANDE
+   ===================================================== */
 
 .commandePage {
   background: #050505;
@@ -1219,72 +913,48 @@ footer {
   padding: 60px;
 }
 
-/* ===== LAYOUT ===== */
-
 .commandeLayout {
   display: grid;
-
   grid-template-columns: 350px 1fr;
-
   gap: 40px;
-
   align-items: start;
 }
 
-/* ===== HERO ===== */
-
 .commandeHero {
   background:
-    radial-gradient(
-      circle at bottom,
-      rgba(255, 140, 0, 0.12),
-      transparent 70%
-    ),
+    radial-gradient(circle at bottom, rgba(255, 140, 0, 0.12), transparent 70%),
     #0b0b0b;
 
   color: white;
 
   border-radius: 35px;
-
   padding: 50px 40px;
 
   border: 1px solid rgba(255, 140, 0, 0.12);
 
   position: sticky;
-
   top: 30px;
 
   height: fit-content;
 }
 
 .commandeHero h1 {
-  font-size: 72px;
-
+  font-size: clamp(48px, 7vw, 72px);
   line-height: 0.95;
-
   margin: 0 0 30px;
 }
 
 .commandeHero p {
   font-size: 22px;
-
   color: #d6d6d6;
-
   line-height: 1.5;
 }
-
-/* ===== ICON ===== */
 
 .commandeIcon {
   width: 90px;
   height: 90px;
 
-  background: linear-gradient(
-    135deg,
-    #ff8c00,
-    #ff9900
-  );
-
+  background: linear-gradient(135deg, #ff8c00, #ff9900);
   border-radius: 24px;
 
   display: flex;
@@ -1292,147 +962,100 @@ footer {
   justify-content: center;
 
   font-size: 42px;
-
   margin-top: 40px;
 
-  box-shadow:
-    0 15px 35px rgba(255, 140, 0, 0.25);
+  box-shadow: 0 15px 35px rgba(255, 140, 0, 0.25);
 }
-
-/* ===== GRID ===== */
 
 .commandeGrid {
   display: grid;
-
   grid-template-columns: repeat(2, 1fr);
-
   gap: 40px;
-
   align-items: start;
 }
 
-/* ===== CARD ===== */
-
 .commandeCard {
   background: #0d0d0d;
-
   color: white;
 
   border-radius: 32px;
-
   padding: 28px;
 
   border: 1px solid rgba(255, 140, 0, 0.12);
-
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
 
   transition: 0.3s ease;
 }
 
 .commandeCard:hover {
   transform: translateY(-8px);
-
   border-color: rgba(255, 140, 0, 0.3);
 }
-
-/* ===== LARGE CARD ===== */
 
 .commandeCardLarge {
   grid-column: span 2;
 
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 30px;
-
   align-items: center;
 }
 
 .commandeCardContent {
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
 }
 
-/* ===== IMAGE ===== */
-
 .commandeCard img {
   width: 100%;
-
   height: 320px;
 
   object-fit: cover;
 
   border-radius: 24px;
-
   margin-bottom: 28px;
 }
 
 .commandeCardLarge img {
   height: 100%;
-
   min-height: 320px;
-
   margin-bottom: 0;
 }
 
-/* ===== TEXT ===== */
-
 .commandeCard h2 {
   font-size: 54px;
-
   line-height: 1;
-
   margin: 0 0 20px;
 }
 
 .commandeCard p {
   color: #d0d0d0;
-
   font-size: 20px;
-
   line-height: 1.6;
-
   margin-bottom: 25px;
 }
 
 .commandeCard strong {
   display: block;
-
   color: #ff8c00;
-
   font-size: 42px;
-
   margin-bottom: 28px;
 }
 
-/* ===== BUTTON ===== */
-
 .commandeCard button {
-  background: linear-gradient(
-    135deg,
-    #ff8c00,
-    #ff9900
-  );
-
+  background: linear-gradient(135deg, #ff8c00, #ff9900);
   color: white;
 
   border: none;
-
   border-radius: 20px;
 
   padding: 20px;
 
   font-size: 20px;
-
   font-weight: 800;
 
   cursor: pointer;
-
   width: 100%;
 
   transition: 0.3s ease;
@@ -1442,31 +1065,75 @@ footer {
   transform: scale(1.03);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== FOOTER ===== */
+
+footer {
+  text-align: center;
+  padding: 15px;
+}
+
+/* =====================================================
+   RESPONSIVE TABLETTE
+   ===================================================== */
 
 @media (max-width: 1200px) {
-
   .commandeLayout {
     grid-template-columns: 1fr;
   }
 
   .commandeHero {
     position: relative;
-
     top: auto;
   }
+}
 
+@media (max-width: 1024px) {
+  header {
+    align-items: flex-start;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    padding: 0 25px 50px;
+  }
+
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dessertGrid,
+  .boissonGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .deliveryBanner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 50px 25px;
+  }
 
+  .heroDescription {
+    margin-inline: auto;
+  }
+
+  .heroButtons {
+    justify-content: center;
+  }
+
+  .menuGrid,
   .commandeGrid {
     grid-template-columns: 1fr;
   }
 
   .commandeCardLarge {
     grid-column: span 1;
-
     grid-template-columns: 1fr;
   }
 
@@ -1478,12 +1145,226 @@ footer {
     padding: 40px;
   }
 
-  .commandeHero h1 {
-    font-size: 48px;
-  }
-
   .commandeCard h2 {
     font-size: 42px;
   }
+}
 
+/* =====================================================
+   RESPONSIVE MOBILE
+   ===================================================== */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 16px;
+    padding: 20px 16px;
+
+    height: auto;
+    min-height: auto;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .titleHeader {
+    font-size: 42px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav a {
+    font-size: 14px;
+    padding: 9px 14px;
+  }
+
+  .menuContainer {
+    width: 100%;
+    padding: 32px 16px 0;
+  }
+
+  .clocheIcon {
+    width: 180px;
+    top: 120px;
+    right: -30px;
+  }
+
+  .menuGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .menuCard {
+    width: 100%;
+    max-width: 340px;
+    min-height: auto;
+    margin: 0 auto;
+  }
+
+  .menuCard h2 {
+    font-size: 30px;
+  }
+
+  .menuCard img {
+    height: 190px;
+  }
+
+  .menuFooter {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 20px;
+  }
+
+  .menuPage,
+  .dessertPage,
+  .boissonPage,
+  .commandePage {
+    padding: 24px 16px;
+  }
+
+  .dessertHero,
+  .boissonHero,
+  .commandeHero {
+    padding: 35px 24px;
+    border-radius: 25px;
+  }
+
+  .dessertHero p,
+  .boissonHero p,
+  .commandeHero p {
+    font-size: 18px;
+  }
+
+  .dessertGrid,
+  .boissonGrid,
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dessertCard,
+  .boissonCard,
+  .commandeCard {
+    padding: 24px;
+  }
+
+  .dessertCard h2,
+  .boissonCard h2,
+  .commandeCard h2 {
+    font-size: 34px;
+  }
+
+  .dessertCard strong,
+  .boissonCard strong,
+  .commandeCard strong {
+    font-size: 30px;
+  }
+
+  .dessertCard img,
+  .boissonCard img,
+  .commandeCard img {
+    height: 230px;
+  }
+
+  .commandeCardLarge img {
+    min-height: 230px;
+  }
+
+  .deliveryBanner {
+    padding: 28px 24px;
+  }
+
+  .deliveryBanner h2 {
+    font-size: 28px;
+  }
+
+  .cardBottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cardBottom button {
+    width: 100%;
+  }
+
+  .panierItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE PETITS TÉLÉPHONES
+   ===================================================== */
+
+@media (max-width: 480px) {
+  main {
+    padding: 12px;
+  }
+
+  .hero {
+    padding: 40px 16px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .heroDescription {
+    font-size: 18px;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+  }
+
+  .titleHeader {
+    font-size: 36px;
+  }
+
+  .nav a {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .menuTop h1 {
+    font-size: 42px;
+  }
+
+  .menuTop p {
+    font-size: 16px;
+  }
+
+  .menuCard {
+    max-width: 100%;
+  }
+
+  .menuBtn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  .dessertHero h1,
+  .boissonHero h1,
+  .commandeHero h1 {
+    font-size: 38px;
+  }
+
+  .dessertCard img,
+  .boissonCard img,
+  .commandeCard img {
+    height: 200px;
+  }
 }
