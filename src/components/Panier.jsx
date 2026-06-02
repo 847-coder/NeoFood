@@ -1,50 +1,79 @@
-function Panier(props) {
+function Panier({ panier, ajouterAuPanier, retirerDuPanier, supprimerDuPanier }) {
+  const total = panier.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
-    const total = props.panier.reduce((acc, produit) => {
-        return acc + produit.prix * produit.quantite;
-    }, 0);
+  return (
+    <div className="panierPage">
+      <div className="panierHero">
+        <h1>Votre Panier</h1>
+        <p>Vérifiez vos articles et validez votre commande.</p>
+      </div>
 
-    return (
+      <div className="panierLayout">
+        <div className="panierArticles">
+          <h2>Articles dans votre panier</h2>
 
-        <section className="panier">
+          {panier.length === 0 ? (
+            <p className="panierVide">Votre panier est vide.</p>
+          ) : (
+            panier.map((item) => (
+              <div className="panierCard" key={item.id}>
+                <img src={item.image} alt={item.name} />
 
-            <h2>Panier</h2>
-
-            {props.panier.map((produit, index) => (
-
-                <div key={index} className="panierItem">
-
-                    <p>
-                        {produit.texte} - {produit.prix} €
-                    </p>
-
-                    <div className="quantityControls">
-
-                        <button
-                            onClick={() => props.supprimerDuPanier(index)}
-                        >
-                            🗑️
-                        </button>
-
-                        <span>{produit.quantite}</span>
-
-                        <button
-                            onClick={() => props.augmenterQuantite(produit.texte)}
-                        >
-                            +
-                        </button>
-
-                    </div>
-
+                <div className="panierInfos">
+                  <h3>{item.name}</h3>
+                  <p>{item.description}</p>
+                  <strong>{item.price.toFixed(2)} €</strong>
                 </div>
 
-            ))}
+                <div className="panierActions">
+                  <div className="quantityControls">
+                    <button onClick={() => retirerDuPanier(item.id)}>-</button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => ajouterAuPanier(item)}>+</button>
+                  </div>
 
-            <h3>Total : {total.toFixed(2)} €</h3>
+                  <button
+                    className="deleteBtn"
+                    onClick={() => supprimerDuPanier(item.id)}
+                  >
+                    Supprimer
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
 
-        </section>
+        <div className="panierResume">
+          <h2>Récapitulatif</h2>
 
-    );
+          <div className="resumeLine">
+            <span>Sous-total</span>
+            <strong>{total.toFixed(2)} €</strong>
+          </div>
+
+          <div className="resumeLine">
+            <span>Livraison</span>
+            <strong>2.00 €</strong>
+          </div>
+
+          <div className="resumeTotal">
+            <span>Total</span>
+            <strong>{(total + 2).toFixed(2)} €</strong>
+          </div>
+
+          <button className="checkoutBtn">
+            Valider la commande
+          </button>
+
+          <p className="secureText">Paiement 100% sécurisé</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Panier;

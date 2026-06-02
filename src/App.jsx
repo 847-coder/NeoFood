@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./style.css";
+import "./styles/style.css";
 
 import Panier from "./components/Panier";
 import Hero from "./components/Hero";
@@ -7,7 +7,7 @@ import Header from "./components/Header";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Menu from "./pages/menu";
+import Commande from "./pages/Commande";
 import Menus from "./pages/Menus";
 import Desserts from "./pages/Desserts";
 import Boissons from "./pages/Boissons";
@@ -16,45 +16,35 @@ function App() {
   const [panier, setPanier] = useState([]);
 
   const ajouterAuPanier = (produit) => {
-    const produitExiste = panier.find((item) => item.texte === produit.texte);
+    const produitExiste = panier.find((item) => item.id === produit.id);
 
     if (produitExiste) {
       setPanier(
         panier.map((item) =>
-          item.texte === produit.texte
-            ? { ...item, quantite: item.quantite + 1 }
+          item.id === produit.id
+            ? { ...item, quantity: item.quantity + 1 }
             : item
         )
       );
     } else {
-      setPanier([...panier, { ...produit, quantite: 1 }]);
+      setPanier([...panier, { ...produit, quantity: 1 }]);
     }
   };
 
-  const augmenterQuantite = (texteProduit) => {
-    setPanier(
-      panier.map((item) =>
-        item.texte === texteProduit
-          ? { ...item, quantite: item.quantite + 1 }
-          : item
-      )
-    );
-  };
-
-  const diminuerQuantite = (texteProduit) => {
+  const retirerDuPanier = (id) => {
     setPanier(
       panier
         .map((item) =>
-          item.texte === texteProduit
-            ? { ...item, quantite: item.quantite - 1 }
+          item.id === id
+            ? { ...item, quantity: item.quantity - 1 }
             : item
         )
-        .filter((item) => item.quantite > 0)
+        .filter((item) => item.quantity > 0)
     );
   };
 
-  const supprimerDuPanier = (indexASupprimer) => {
-    setPanier(panier.filter((produit, index) => index !== indexASupprimer));
+  const supprimerDuPanier = (id) => {
+    setPanier(panier.filter((item) => item.id !== id));
   };
 
   return (
@@ -68,19 +58,20 @@ function App() {
             <>
               <Hero />
 
-              <main>
-                <Panier
-                  panier={panier}
-                  supprimerDuPanier={supprimerDuPanier}
-                  augmenterQuantite={augmenterQuantite}
-                  diminuerQuantite={diminuerQuantite}
-                />
-              </main>
+              <footer className="heroFooter">
+                <h2>
+                  Neo<span>Food</span>
+                </h2>
+                <p>© 2026 NeoFood - Tous droits réservés</p>
+              </footer>
             </>
           }
         />
 
-        <Route path="/menu" element={<Menu />} />
+        <Route
+          path="/commande"
+          element={<Commande ajouterAuPanier={ajouterAuPanier} />}
+        />
 
         <Route
           path="/menus"
@@ -102,9 +93,9 @@ function App() {
           element={
             <Panier
               panier={panier}
+              ajouterAuPanier={ajouterAuPanier}
+              retirerDuPanier={retirerDuPanier}
               supprimerDuPanier={supprimerDuPanier}
-              augmenterQuantite={augmenterQuantite}
-              diminuerQuantite={diminuerQuantite}
             />
           }
         />
