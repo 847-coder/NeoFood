@@ -34,11 +34,6 @@ https://neo-food.vercel.app
 
 ## 📸 Aperçu
 
-![Accueil](COLLE_TON_IMAGE_ICI)
-
-![Menu](COLLE_TON_IMAGE_ICI)
-
-![Commande](COLLE_TON_IMAGE_ICI)
 
 ## 📱 Responsive
 
