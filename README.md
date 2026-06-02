@@ -1,16 +1,52 @@
-# React + Vite
+# NeoFood 🍔
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NeoFood est une application web moderne de restauration rapide développée avec React et Vite.
 
-Currently, two official plugins are available:
+## 🚀 Technologies utilisées
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- Vite
+- JavaScript
+- CSS3
+- React Router DOM
+- HTML5
+- Git
+- GitHub
+- Vercel
+- Responsive Design
+- Flexbox
+- CSS Grid
 
-## React Compiler
+## ✨ Fonctionnalités
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Navigation dynamique
+- Panier interactif
+- Ajout de produits
+- Gestion des quantités
+- Pages Menus / Desserts / Boissons
+- Interface responsive mobile
+- Design moderne noir & orange
+- Déploiement en ligne avec Vercel
 
-## Expanding the ESLint configuration
+## 🌍 Démo en ligne
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+https://neo-food.vercel.app
+
+## 📸 Aperçu
+
+![Accueil](COLLE_TON_IMAGE_ICI)
+
+![Menu](COLLE_TON_IMAGE_ICI)
+
+![Commande](COLLE_TON_IMAGE_ICI)
+
+## 📱 Responsive
+
+Le site est optimisé pour :
+- Mobile
+- Tablette
+- Desktop
+
+## 👨‍💻 Développeur
+
+Projet développé par Wassim Bentafat.
